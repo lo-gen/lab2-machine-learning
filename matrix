@@ -1,1 +1,40 @@
-skriv här
+#i matrix[a][b] så är a rader(>) och b kolummner(v)
+#len(M) antal rader
+#len(M[a]) antal kolumner
+
+
+def transpose(M):
+    n = 0
+    m = 0
+    new_matrix = []
+    for n in range(0 , len(M)):
+        if len(M[n]) != len(M[0]):
+            return "Not a matrice"
+    if M[0][0] == 
+    for n in range(0, len(M[n])):
+        new_row = []
+        for m in range(0, len(M)):
+            new_row.append(M[m][n])
+        new_matrix.append(new_row)
+    return new_matrix
+
+
+"""
+def powers(list, power1, power2):
+    
+
+    for n in range()
+"""
+
+"""
+def matmul():
+    pass
+
+def invert():
+    pass
+
+def loadtxt():
+    pass
+"""
+
+print(transpose([]))
