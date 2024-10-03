@@ -1,7 +1,7 @@
+
 #i matrix[a][b] så är a rader(>) och b kolummner(v)
 #len(M) antal rader
 #len(M[a]) antal kolumner
-
 
 def transpose(M):
     n = 0
@@ -11,7 +11,7 @@ def transpose(M):
         if len(M[n]) != len(M[0]):
             return "Not a matrice"
     if M == []:
-        return []
+        return M
     for n in range(0, len(M[n])):
         new_row = []
         for m in range(0, len(M)):
@@ -19,18 +19,30 @@ def transpose(M):
         new_matrix.append(new_row)
     return new_matrix
 
-
-"""
 def powers(list, power1, power2):
-    
+    new_matrix = []
+    for n in range(len(list)):
+        new_list = []
+        for m in range(power1, power2 + 1):
+             new_list.append(list[n]**m)
+        new_matrix.append(new_list)
+    return new_matrix
 
-    for n in range()
+def matmul(M1, M2):
+    new_matrix = []
+    if len(M1[0]) == len(M2):
+        for p in range(len(M2)):
+            for n in range(len(M1)):
+                new_row = []
+                for m in range(len(M2[0])):
+                    new_row.append(M1[n][p] * M2[p][-1-m])
+            new_matrix.append(new_row)
+    else:
+        return "fuck off"
+    return new_matrix
+
+
 """
-
-"""
-def matmul():
-    pass
-
 def invert():
     pass
 
@@ -38,4 +50,10 @@ def loadtxt():
     pass
 """
 
-print(transpose([]))
+s1 = [[0,1]
+     ,[1,0]
+     ]
+s3 = [[1, 0]
+     ,[0,-1]
+     ]
+print(matmul(s1,s3))
