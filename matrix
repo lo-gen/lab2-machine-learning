@@ -10,7 +10,8 @@ def transpose(M):
     for n in range(0 , len(M)):
         if len(M[n]) != len(M[0]):
             return "Not a matrice"
-    if M[0][0] == 
+    if M == []:
+        return []
     for n in range(0, len(M[n])):
         new_row = []
         for m in range(0, len(M)):
