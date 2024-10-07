@@ -1,0 +1,51 @@
+from numpy import *
+import matplotlib.pyplot as plt
+import sys
+
+def powers(list, power1, power2):
+    new_matrix = []
+    for n in range(len(list)):
+        new_list = []
+        for m in range(power1, power2 + 1):
+             new_list.append(list[n]**m)
+        new_matrix.append(new_list)     
+    return array(new_matrix)
+
+
+matrix = transpose(loadtxt("chirps-modified.txt"))                      #sysargv ska imlementeras
+X = matrix[0]
+Y = matrix[1]
+Y2 = []
+X2 = []
+
+n = 2                       #n ska bli sysargv
+
+Xp  = powers(X,0,n)
+Yp  = powers(Y,1,1)
+Xpt = transpose(Xp)
+
+a = matmul(linalg.inv(matmul(Xpt,Xp)),matmul(Xpt,Yp))
+a = a[:,0]
+
+print(a)
+
+def poly(a,x):
+    for i in a:
+        y = (a*i)*(x*i)
+        Y2.append(y)
+    return y
+poly(a,2)
+"""
+a1 = 
+b1 = 
+n1 = 
+
+linspace(a1,b1,n1).tolist()
+"""
+
+
+
+plt.plot(X,Y,)
+plt.plot(X,Y,"ro")
+plt.plot(X,Y2)
+plt.show()
