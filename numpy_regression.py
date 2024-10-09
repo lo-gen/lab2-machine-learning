@@ -17,27 +17,25 @@ X = matrix[0]
 Y = matrix[1]
 Y2 = []
 
-# n är graden och ska vara arg[2]
-Xp  = powers(X,0,sys.argv[2])
+X2 = linspace(X[0],X[len(X)-1],int((X[len(X)-1] - X[0])/0.2)).tolist()
+
+
+Xp  = powers(X,0,int(sys.argv[2]))
 Yp  = powers(Y,1,1)
 Xpt = Xp.transpose()
 
-a = matmul(linalg.inv(matmul(Xpt,Xp)),matmul(Xpt,Yp))
-a = a[:,0]
-#
+A = matmul(linalg.inv(matmul(Xpt,Xp)),matmul(Xpt,Yp))
+A = A[:,0]
 
-Xp  = powers(X,0,1)
-Yp  = powers(Y,1,1)
-Xpt = transpose(Xp)
+def poly(a, x):
+    y = 0
+    for i in range(len(a)):
+        y += a[i] * (x ** i)    #Räknar ut värdet för y, följer: y = a0 + a1x + a2x^2... + anx^n
+    return y
 
-[[b],[m]] = matmul(linalg.inv(matmul(Xpt,Xp)),matmul(Xpt,Yp))
+for i in X2: 
+    Y2.append(poly(A, i))
 
-for i in X:
-    Y2.append(b + m * i)
-
-
-plt.plot(X,Y,'ro')
-plt.plot(X,Y2)
+plt.plot(X, Y,'ro') 
+plt.plot(X2, Y2) 
 plt.show()
-
-# y = a0 + a1x + a2x^2 + a3x^3 + anx^n
