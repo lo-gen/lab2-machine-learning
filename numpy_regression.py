@@ -17,7 +17,7 @@ X = matrix[0]
 Y = matrix[1]
 Y2 = []
 
-X2 = linspace(X[0],X[len(X)-1],int((X[len(X)-1] - X[0])/0.2)).tolist()
+X2 = linspace(X[0],X[-1],int((X[-1] - X[0])/0.2)).tolist()  # lista med nummer mellan första och sista X 
 
 
 Xp  = powers(X,0,int(sys.argv[2]))
@@ -25,16 +25,16 @@ Yp  = powers(Y,1,1)
 Xpt = Xp.transpose()
 
 A = matmul(linalg.inv(matmul(Xpt,Xp)),matmul(Xpt,Yp))
-A = A[:,0]
+A = A[:,0]                                                  # Beräknar alla koefficienter med n-graden av polynom givet av andra argumentet
 
 def poly(a, x):
     y = 0
     for i in range(len(a)):
-        y += a[i] * (x ** i)    #Räknar ut värdet för y, följer: y = a0 + a1x + a2x^2... + anx^n
+        y += a[i] * (x ** i)    # Räknar ut värdet för y, följer: y = a0 + a1x + a2x^2... + anx^n
     return y
 
 for i in X2: 
-    Y2.append(poly(A, i))
+    Y2.append(poly(A, i))       # Beräknar värdet av polynomet för varje värde i X2 
 
 plt.plot(X, Y,'ro') 
 plt.plot(X2, Y2) 
