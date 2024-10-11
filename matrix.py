@@ -40,7 +40,7 @@ def matmul(M1, M2):
                 for p in range(len(M2)):                    #Kan ha antingen len(M2) eller len(M1[0]), eftersom de är samma
                     value = value + M1[n][p] * M2[p][m]     #Räknar ut värdet på positionen
                 new_row.append(value)
-            new_matrix.append(new_row)
+            new_matrix.append(new_row)      #Lägger till de nya värderna i den rya raden och sedan raden in i matrisen
         return new_matrix
     else:                                   #Kommer den hit så matchar inte matriserna
         return "Wrong size on matrices"
